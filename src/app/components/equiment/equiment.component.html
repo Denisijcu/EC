@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-6">
+      <h2><i class="fa fa-desktop"></i> Equiments</h2>
+    </div>
+    <div class="col-md-6">
+      <h5 class="pull-right text-muted">Total : {{totalEq}}</h5>
+    </div>
+  </div>
+  <table *ngIf="equiments?.length > 0 ;else noEquiments" class="table table-striped">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Department</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>User</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let equi of equiments">
+        <td>{{equi.department}}</td>
+        <td>{{equi.brand}}</td>
+        <td>{{equi.model}}</td>
+        <td>{{equi.user}}</td>
+        <td><a [routerLink]="['/equiment/'+equi.$key]" href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <ng-template #noEquiments>
+    <hr>
+    <h5>There are no electronics in the system</h5>
+  </ng-template>
